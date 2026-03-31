@@ -1,5 +1,9 @@
 package Prueba;
 
+/**
+ * Servicio de compras
+ * Valida proveedores y ordenes de compra contra catalogo.
+ */
 public class CompraServicio {
     private Catalogo catalogo;
 
@@ -7,6 +11,11 @@ public class CompraServicio {
         this.catalogo = catalogo;
     }
 
+    /**
+     * Registrar una compra:
+     * - Proveedor debe estar activo
+     * - Orden debe ser valida contra catalogo
+     */
     public void registrarCompra(Proveedor proveedor, OrdenCompra orden) {
         if (!proveedor.isActivo()) {
             throw new RuntimeException("Proveedor inactivo");
@@ -14,6 +23,9 @@ public class CompraServicio {
         validarOrden(orden);
     }
 
+    /**
+     * Validar precios de productos contra catalogo
+     */
     public void validarOrden(OrdenCompra orden) {
         for (Producto p : orden.getProductos()) {
             double precioCatalogo = catalogo.obtenerPrecio(p.getNombre());

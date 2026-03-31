@@ -5,6 +5,12 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 
+/**
+ * Tests de CompraServicio usando Mockito
+ * Validan reglas de negocio basicas:
+ * - Proveedor activo
+ * - Precios contra catalogo
+ */
 class CompraPbTest {
         @Test
         void testProveedorInactivoNoPermiteCompra() {
