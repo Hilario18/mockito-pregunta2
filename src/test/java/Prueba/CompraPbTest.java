@@ -12,7 +12,7 @@ class CompraPbTest {
             when(proveedorMock.isActivo()).thenReturn(false);
 
             Catalogo catalogoMock = mock(Catalogo.class);
-            CompraService service = new CompraService(catalogoMock);
+            CompraServicio service = new CompraServicio(catalogoMock);
 
             Exception ex = assertThrows(RuntimeException.class, () -> {
                 service.registrarCompra(proveedorMock, new OrdenCompra());
@@ -30,7 +30,7 @@ class CompraPbTest {
             OrdenCompra orden = new OrdenCompra();
             orden.agregarProducto(producto);
 
-            CompraService service = new CompraService(catalogoMock);
+            CompraServicio service = new CompraServicio(catalogoMock);
 
             Exception ex = assertThrows(RuntimeException.class, () -> {
                 service.validarOrden(orden);
